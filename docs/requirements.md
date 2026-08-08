@@ -3,14 +3,17 @@
 ## 1. Introduction
 
 ### 1.1 Purpose
+
 The purpose of this Software Requirements Specification (SRS) is to define the functional and non-functional requirements of the restaurant management software. This document serves as a reference and development guide for the project team, stakeholders, and other interested parties throughout the software development lifecycle, including the design, implementation, testing, and maintenance phases.
 
 ### 1.2 Scope
+
 The Minimum Viable Product (MVP) of the system will support inventory, sales, and order management, as well as the generation of administrative reports containing basic statistics based on data collected throughout the restaurant's operational workflow.
 
 By implementing the proposed solution, restaurant staff will no longer need to perform repetitive manual tasks that typically reduce operational efficiency, resulting in a more streamlined workflow and an improved overall business operation.
 
 ### 1.3 Definitions, Acronyms and Abbreviations
+
 - **SRS (Software Requirements Specification):** A formal document that describes the functional and non-functional requirements of the system, serving as the primary reference for its design, development, testing, and validation.
 - **SaaS (Software as a Service):** A cloud-based software delivery model where users access the application through the internet without installing it locally. The application is hosted, maintained, and updated by the service provider.
 - **MVP (Minimum Viable Product):** The first functional version of the system that includes only the essential features required to validate the product and provide value to its users.
@@ -29,6 +32,7 @@ By implementing the proposed solution, restaurant staff will no longer need to p
 - **Authorization:** The process of determining which resources and actions an authenticated user is allowed to access based on their assigned role and permissions.
 
 ### 1.4 References
+
 The following documents and resources were used as references for the preparation of this Software Requirements Specification:
 
 1. KitchenHub Project Vision. Internal project document.
@@ -43,15 +47,147 @@ The following documents and resources were used as references for the preparatio
 
 ### 2.1 Product Perspective
 
+KitchenHub is a completely new software product designed as a web-based SaaS platform for restaurant management. It is intended to centralize the restaurant's administrative operations into a single system, replacing manual processes and improving the efficiency of daily business activities. Future versions of the product may include dedicated mobile applications to provide greater accessibility and convenience.
+
+The system interacts with the following external elements:
+
+- Restaurant staff.
+- A relational database management system.
+- A web browser used to access the platform.
+
+KitchenHub is designed to operate as an independent system for restaurant administration. The product centralizes operational information such as inventory, orders, sales, and administrative records, providing a unified platform for managing the restaurant's daily activities.
+
+The system requires an internet connection and access to a modern web browser in order to operate correctly.
+
 ### 2.2 Product Functions
+
+The system provides the following main functions:
+
+#### Menu Management
+
+The restaurant staff can manage the menu by creating, updating, and organizing products, modifying their availability, and viewing product information and prices during the order process.
+
+#### Order Management
+
+Restaurant staff can manage orders throughout their entire lifecycle, from the initial order placement to payment completion. The system also updates the inventory automatically based on the recipes associated with each ordered product.
+
+#### Inventory Management
+
+Authorized staff can manage the restaurant's inventory by monitoring stock levels, updating ingredient quantities, managing recipes to calculate product costs, and generating reports related to inventory consumption and demand.
+
+#### Statistics Dashboard
+
+The system provides a dashboard that displays basic statistics based on operational and financial data through charts and calculated values. It allows users to monitor key business indicators and evaluate the overall performance of the restaurant in real time.
+
+#### Administrative Reporting
+
+The system allows the generation of administrative reports based on information collected during the restaurant's daily operations, supporting business analysis and decision-making.
+
+The reports may include information related to sales performance, inventory movements, order history, cash register activity, revenue, ingredient consumption, and staff productivity.
 
 ### 2.3 User Classes and Characteristics
 
+The system is intended to be used by the following user classes:
+
+#### Manager
+
+The restaurant manager is the person responsible for supervising most of the establishment's operations and ensuring the proper functioning of the business. The manager is responsible for monitoring daily activities, customer satisfaction, and business performance. Managers are expected to use most of the system's modules for supervision and control purposes, and therefore should have a broad understanding of the system and its main functions.
+
+#### Administrative Staff
+
+Administrative staff are responsible for coordinating and supervising administrative operations and managing the information generated by them, such as sales, purchases, inventory, orders, and financial records. Administrative staff primarily use the inventory management, statistics, and reporting modules, while also using the menu and order management modules when necessary. They are expected to have basic knowledge of data analysis, administration, and the use of the system.
+
+#### Cashier
+
+The cashier is responsible for managing and processing customer payments, as well as handling cash register operations and interacting with other restaurant staff. Cashiers primarily use the cash register functions of the system, while also accessing the menu and order management modules when required. They are expected to have basic computer skills and a basic understanding of the system's relevant modules and their regular workflow.
+
+#### Waiter
+
+The waiter is responsible for providing direct customer service and acts as an important connection between customers, tables, and the restaurant's internal operations. Waiters primarily use the order management and menu management modules to register and manage customer orders. They are expected to have basic computer skills and basic knowledge of the system.
+
+#### Cook
+
+The cook is responsible for preparing and presenting the food while maintaining the quality and consistency of the restaurant's products. Cooks primarily use the order management and inventory management modules to monitor incoming orders and check the availability of ingredients required for food preparation. They are expected to have basic knowledge of the system and its relevant functions.
+
 ### 2.4 Operating Environment
+
+KitchenHub will operate as a web-based SaaS application under the following environment:
+
+#### Server Environment
+
+The system will be deployed on a cloud-based Linux server capable of running the application's backend. The server will provide the resources required to process user requests and establish communication with the database for the proper operation of the application.
+
+#### Database Environment
+
+KitchenHub will use a relational database management system to store and manage information about users, inventory, recipes, cash register movements, and other relevant application data. The database will be hosted in a remote environment and will be accessed by the application backend.
+
+#### Client Environment
+
+KitchenHub users will access the web application through desktop computers, laptops, tablets, smartphones, or other compatible devices. No additional software installation will be required on the user's device, apart from a compatible web browser.
+
+#### Network Environment
+
+KitchenHub requires a stable Internet connection to allow communication between the user, the backend, and the remote database. The system will use standard web communication protocols to exchange information between the client and server.
 
 ### 2.5 Design and Implementation Constraints
 
+The design and implementation of KitchenHub are subject to the following constraints:
+
+#### Technology Constraints
+
+- The backend must be developed using Node.js and Express.js.
+- The frontend must be developed using React and Tailwind CSS.
+- The system must use PostgreSQL as its relational database management system.
+- Prisma ORM must be used to manage communication between the backend and the database.
+- The backend must expose its functionality through a RESTful API.
+- The system must be developed using technologies that support its deployment as a web-based SaaS application.
+
+#### Architecture Constraints
+
+- The system must maintain a clear separation between presentation, business logic, and data access responsibilities.
+- Business rules must be handled within the backend rather than being directly implemented in the client application.
+- Communication between the frontend and backend must be performed through the RESTful API.
+- Database access must be handled through the application's data access layer and Prisma ORM.
+
+#### Security Constraints
+
+- The system must implement authentication and authorization mechanisms to prevent unauthorized access to protected resources.
+- Access to system functionality must be controlled according to the user's assigned role and permissions.
+- User credentials must not be stored in plain text.
+- Input data must be validated before being processed by the application.
+- Communication between the client and backend must use HTTPS.
+
+#### Infrastructure Constraints
+
+- The system must be deployable in a cloud-based environment capable of running the backend and database services.
+- The backend must be able to establish a secure connection with the remote PostgreSQL database.
+- The infrastructure must provide sufficient resources to support the expected workload of the MVP.
+- The application must not depend on locally installed software on the user's device.
+
+#### Compatibility Constraints
+
+- The web application must support modern web browsers.
+- The user interface must be accessible from desktop computers, laptops, tablets, and smartphones through a web browser.
+- The system must not require a native mobile application for access to the MVP.
+
 ### 2.6 Assumptions and Dependencies
+
+#### Assumptions
+
+- Users are assumed to have a stable Internet connection to access the web application.
+- Restaurant staff are assumed to have basic computer skills and sufficient knowledge of their assigned responsibilities.
+- The restaurant is assumed to have defined processes for managing orders, products, inventory, and cash register operations.
+- The information entered into the system is assumed to be accurate and up to date.
+- The MVP is assumed to be used by a single restaurant during its initial release.
+- Business requirements are assumed to remain sufficiently stable during the development of the MVP, although changes may be introduced as the project evolves.
+
+#### Dependencies
+
+- KitchenHub depends on the availability of the cloud infrastructure where the application backend is deployed.
+- The system depends on the availability of the PostgreSQL database for storing and retrieving application data.
+- The backend depends on Node.js and its required runtime environment to execute the application.
+- The system depends on the availability of the network connection between the client, backend, and database services.
+- The frontend depends on a compatible web browser to provide access to the application.
 
 ## 3. Functional Requirements
 
