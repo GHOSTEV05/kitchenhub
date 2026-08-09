@@ -218,6 +218,19 @@ The system shall allow users to change their login password if it is forgotten.
 The system shall prevent users from accessing a function for which they are not authorized according to their assigned role.
 
 ### 3.2 Menu Management
+
+#### FR-007 - Product Management
+
+The system shall allow authorized users to view, create, modify, and delete menu products, considering information such as price, name, description, status, and the category to which the product belongs.
+
+#### FR-008 - Product Availability
+
+The system shall manage the availability of products based on the ingredients required by their recipes and their current inventory levels. If there are not enough ingredients available to prepare a product, the system shall automatically mark the product as unavailable. Authorized users shall also be able to manually change the availability of a product when necessary.
+
+#### FR-009 Category Management
+
+The system shall allow authorized users to create, modify, view, and delete product categories to ensure proper organization of the menu.
+
 ### 3.3 Order Management
 ### 3.4 Inventory Management
 ### 3.5 Cash Register Management
