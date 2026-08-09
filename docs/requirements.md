@@ -191,11 +191,39 @@ The design and implementation of KitchenHub are subject to the following constra
 
 ## 3. Functional Requirements
 
-### FR-001
-...
+### 3.1 Authentication and Authorization
 
-### FR-002
-...
+#### FR-001 - User Registration
+
+The system shall allow users with administrative permissions to register new employees on the platform by requesting the necessary information to create their account and assigning them a role within the system.
+
+#### FR-002 - Login
+
+The system shall allow users to log in to the system after entering their email address and password correctly.
+
+#### FR-003 - Role and Permission Management
+
+The system shall limit the functionalities that users can access according to the permissions assigned to their role, which may be modified by an administrator.
+
+#### FR-004 - Logout
+
+The system shall allow users to log out of the platform at any time.
+
+#### FR-005 - Password Recovery
+
+The system shall allow users to change their login password if it is forgotten.
+
+#### FR-006 - Protected Resource Access
+
+The system shall prevent users from accessing a function for which they are not authorized according to their assigned role.
+
+### 3.2 Menu Management
+### 3.3 Order Management
+### 3.4 Inventory Management
+### 3.5 Cash Register Management
+### 3.6 Statistics Dashboard
+### 3.7 Administrative Reporting
+
 
 ## 4. Non-Functional Requirements
 
