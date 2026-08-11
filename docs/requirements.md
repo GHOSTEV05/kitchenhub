@@ -232,6 +232,27 @@ The system shall manage the availability of products based on the ingredients re
 The system shall allow authorized users to create, modify, view, and delete product categories to ensure proper organization of the menu.
 
 ### 3.3 Order Management
+
+#### FR-010 - Create or Register Orders
+
+The system must allow authorized users to create or register orders from restaurant customers, taking into account the requested products, additional specifications, assigned table, order status, creation date and time, and total order value. When creating an order, the system must validate that the selected products are available before registering the order. When an order is confirmed, the system must generate the consumption of ingredients associated with the products through their recipes, automatically updating the inventory.
+
+#### FR-011 - Consult Orders
+
+The system must allow authorized users to consult the orders registered in the system, filtering the information by order status, creation date and time, assigned table, and total order value.
+
+#### FR-012 - Modify Orders
+
+The system must allow authorized users to modify orders that have already been registered in the system but are not in the "Completed" or "Paid" status, changing the final order value according to the products that are added or removed.
+
+#### FR-013 - Update Order Status
+
+The system must allow authorized users to modify the status of orders according to the defined order workflow and the progress of their preparation, preventing unauthorized or invalid status transitions.
+
+#### FR-014 - Cancel Orders
+
+The system must allow authorized users to cancel orders that have already been registered in the system but are not in the "Completed" or "Paid" status. Cancelled orders must remain stored in the system with their corresponding cancellation status in order to preserve their history.
+
 ### 3.4 Inventory Management
 ### 3.5 Cash Register Management
 ### 3.6 Statistics Dashboard
