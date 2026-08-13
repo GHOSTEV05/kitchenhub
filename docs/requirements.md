@@ -180,6 +180,7 @@ The design and implementation of KitchenHub are subject to the following constra
 - The information entered into the system is assumed to be accurate and up to date.
 - The MVP is assumed to be used by a single restaurant during its initial release.
 - Business requirements are assumed to remain sufficiently stable during the development of the MVP, although changes may be introduced as the project evolves.
+- Users are assumed to know the expiration date of the ingredients they register in the system. The MVP assumes that each ingredient has a single expiration date and does not support multiple independent inventory lots.
 
 #### Dependencies
 
@@ -235,25 +236,46 @@ The system shall allow authorized users to create, modify, view, and delete prod
 
 #### FR-010 - Create or Register Orders
 
-The system must allow authorized users to create or register orders from restaurant customers, taking into account the requested products, additional specifications, assigned table, order status, creation date and time, and total order value. When creating an order, the system must validate that the selected products are available before registering the order. When an order is confirmed, the system must generate the consumption of ingredients associated with the products through their recipes, automatically updating the inventory.
+The system shall allow authorized users to create or register orders from restaurant customers, taking into account the requested products, additional specifications, assigned table, order status, creation date and time, and total order value. When creating an order, the system shall validate that the selected products are available before registering the order. When an order is confirmed, the corresponding inventory consumption shall be processed according to FR-017.
 
 #### FR-011 - Consult Orders
 
-The system must allow authorized users to consult the orders registered in the system, filtering the information by order status, creation date and time, assigned table, and total order value.
+The system shall allow authorized users to consult the orders registered in the system, filtering the information by order status, creation date and time, assigned table, and total order value.
 
 #### FR-012 - Modify Orders
 
-The system must allow authorized users to modify orders that have already been registered in the system but are not in the "Completed" or "Paid" status, changing the final order value according to the products that are added or removed.
+The system shall allow authorized users to modify orders that have already been registered in the system but are not in the "Completed" or "Paid" status, changing the final order value according to the products that are added or removed.
 
 #### FR-013 - Update Order Status
 
-The system must allow authorized users to modify the status of orders according to the defined order workflow and the progress of their preparation, preventing unauthorized or invalid status transitions.
+The system shall allow authorized users to modify the status of orders according to the defined order workflow and the progress of their preparation. The order workflow shall consist of the following statuses: "Pending", "Confirmed", "Preparing", "Completed", "Paid", and "Cancelled". The system shall prevent unauthorized or invalid status transitions. The system shall prevent an order from being confirmed when the required ingredients are not available, in which case the order shall remain in the "Pending" status.
 
 #### FR-014 - Cancel Orders
 
-The system must allow authorized users to cancel orders that have already been registered in the system but are not in the "Completed" or "Paid" status. Cancelled orders must remain stored in the system with their corresponding cancellation status in order to preserve their history.
+The system shall allow authorized users to cancel orders that have already been registered in the system but are not in the "Completed" or "Paid" status. Cancelled orders shall remain stored in the system with their corresponding cancellation status in order to preserve their history. If inventory consumption has already been processed for the cancelled order, the system shall restore the consumed ingredient quantities to the inventory.
 
 ### 3.4 Inventory Management
+
+#### FR-015 - Ingredient Management
+
+The system shall allow authorized users to register, modify, and view the ingredients that are part of the restaurant's inventory, considering information such as name, description, unit of measurement, purchase price, available quantity, and expiration date. The system shall allow authorized users to change the status of inventory ingredients between active and inactive, provided that the ingredient is not currently associated with an active recipe. Deactivating an ingredient shall not remove or modify its existing inventory quantity or historical records.
+
+#### FR-016 - Recipe Management
+
+The system shall allow authorized users to create, modify, view, and delete recipes associated with menu products, considering information such as the required ingredients, required quantities, and recipe cost. The system shall calculate the recipe cost dynamically based on the current purchase prices of its associated ingredients and the quantities required by the recipe. The system shall validate that the ingredients used in a recipe are registered in the inventory and that the required quantities are valid. The system shall require each active menu product to have an associated recipe. The system shall not allow a recipe to be deleted while its associated product is active. The system shall allow inactive menu products to exist without an associated recipe, but a recipe shall be required before the product can be activated.
+
+#### FR-017 - Inventory Updates
+
+The system shall automatically update the ingredient inventory when confirmed orders are processed, deducting the corresponding quantities according to the recipes associated with the requested products. The system shall also allow authorized users to manually update the available quantity of ingredients in the inventory when necessary. The system shall prevent inventory quantities from becoming negative during manual or automatic inventory updates.
+
+#### FR-018 - Inventory Movements
+
+The system shall record and maintain a history of inventory movements, including the date and time of the movement, the movement type (inbound or outbound), the quantity of ingredients involved, the reason or source of the movement, such as a purchase, recipe-based consumption, order cancellation, or manual adjustment, and the user who performed the action. Authorized users shall be able to view this history to track changes made to the inventory over time.
+
+#### FR-019 - Inventory Alerts
+
+The system shall generate automatic alerts within the inventory module for authorized users when the available quantity of an ingredient reaches or falls below a predefined critical level, indicating that the ingredient needs to be restocked. Authorized users shall be able to configure the critical inventory level for each ingredient according to the restaurant's needs.
+
 ### 3.5 Cash Register Management
 ### 3.6 Statistics Dashboard
 ### 3.7 Administrative Reporting
