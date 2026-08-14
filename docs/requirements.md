@@ -277,6 +277,23 @@ The system shall record and maintain a history of inventory movements, including
 The system shall generate automatic alerts within the inventory module for authorized users when the available quantity of an ingredient reaches or falls below a predefined critical level, indicating that the ingredient needs to be restocked. Authorized users shall be able to configure the critical inventory level for each ingredient according to the restaurant's needs.
 
 ### 3.5 Cash Register Management
+
+#### FR-020 - Payment Registration
+
+The system shall allow authorized users to register payments made by customers for completed orders. The payment shall include information such as the payment method, the amount due, the amount received, the change delivered, the payment date and time, the associated order, and the user who performed the action.
+
+The system shall obtain the amount due automatically from the total value of the associated order according to the workflow defined in FR-010 and shall not allow authorized users to modify this value when registering the payment.
+
+The system shall validate that the amount received is sufficient to cover the amount due. For cash payments, the amount received shall be greater than or equal to the amount due. If the amount received is greater than the amount due, the system shall calculate the change as the difference between the amount received and the amount due. If the amount received is equal to the amount due, the change shall be zero. For credit/debit card and bank transfer payments, the amount received shall be equal to the amount due, and the change shall be zero.
+
+The system shall only allow a payment to be registered for an order with a "Completed" status and shall prevent multiple payments from being registered for the same order.
+
+Once the payment has been successfully registered, the system shall automatically update the order status to "Paid" according to the workflow defined in FR-013.
+
+#### FR-021 - Payment Consultation
+
+The system shall allow authorized users to consult registered payments, filtering the information by payment date and time, payment method, amount due, associated order, and the user who performed the action.
+
 ### 3.6 Statistics Dashboard
 ### 3.7 Administrative Reporting
 
