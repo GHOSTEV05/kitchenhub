@@ -28,14 +28,13 @@ Develop a solution that automates and improves the administrative management of 
 
 ### Specific Objectives
 
-- Design a scalable and maintainable system architecture that supports the restaurant's core business processes.
+- Design a scalable and maintainable system architecture capable of supporting multiple restaurants while keeping their data and operations isolated.
 - Implement the functionalities defined for the Minimum Viable Product (MVP), including user authentication, menu management, order management, and inventory management.
 - Develop a secure and reliable backend API to support communication between the user interface and the business logic.
 - Ensure the quality, security, and reliability of the system through testing and validation.
 
 ## Target Users
 
-- Customers
 - Administrative staff
 - Cashiers
 - Waiters
@@ -45,18 +44,20 @@ Develop a solution that automates and improves the administrative management of 
 
 ### In Scope
 
-The Minimum Viable Product (MVP) of KitchenHub will include the following modules:
+The Minimum Viable Product (MVP) of KitchenHub will include the following capabilities:
 
 - User authentication and role-based access control.
+- Multi-restaurant data isolation.
 - Menu and product management.
 - Order management.
 - Inventory management.
 - Basic financial overview.
 - Basic administrative reports.
+- Restaurant account access control, including blocking access to archived restaurants while preserving their data and restoring access when they are reactivated.
 
 ### Out of Scope
 
-The MVP will not include features such as online payments, delivery management, third-party platform integrations, customer loyalty programs, advanced analytics, or mobile applications. These features may be considered for future releases.
+The MVP will not include features such as online payments, delivery management, third-party platform integrations, customer loyalty programs, advanced analytics, mobile applications, self-service restaurant registration and onboarding or subscription management and automated SaaS billing. These features may be considered for future releases.
 
 ## Core Features
 
@@ -84,8 +85,9 @@ The project is subject to the following constraints:
 - Development is carried out by a two-person team.
 - Development time is limited by the academic schedule of the team members.
 - The first release will focus only on the MVP.
-- The system will initially support a single restaurant.
+- The system must support multiple restaurants from the initial release, with each restaurant operating as an independent organization within the platform.
 - The project will be developed using the selected technology stack.
+- Restaurant data and operational information must remain isolated between organizations.
 
 ## Assumptions
 
@@ -95,7 +97,9 @@ The project assumes that:
 - Restaurant staff have basic digital literacy.
 - Business requirements may evolve during development.
 - The selected technologies are sufficient to support the project's objectives.
-- The restaurant operates using standardized business processes.
+- Each restaurant operates using standardized business processes.
+- Restaurant accounts are initially created and configured manually by the platform owner.
+- Restaurant accounts are archived and reactivated manually by the platform owner.
 
 ## Future Vision
 
