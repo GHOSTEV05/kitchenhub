@@ -81,9 +81,9 @@ The system provides a dashboard that displays basic statistics based on operatio
 
 #### Administrative Reporting
 
-The system allows the generation of administrative reports based on information collected during the restaurant's daily operations, supporting business analysis and decision-making.
+The system allows authorized users to generate administrative reports based on information collected during the restaurant's daily operations, supporting business analysis and decision-making.
 
-The reports may include information related to sales performance, inventory movements, order history, cash register activity, revenue, ingredient consumption, and staff productivity.
+The MVP will provide sales reports, inventory reports, and order reports, containing detailed information derived from the data managed by the corresponding system modules. Authorized users will also be able to export generated reports for further analysis or record-keeping.
 
 ### 2.3 User Classes and Characteristics
 
@@ -236,11 +236,11 @@ The system shall allow authorized users to create, modify, view, and delete prod
 
 #### FR-010 - Create or Register Orders
 
-The system shall allow authorized users to create or register orders from restaurant customers, taking into account the requested products, additional specifications, assigned table, order status, creation date and time, and total order value. When creating an order, the system shall validate that the selected products are available before registering the order. When an order is confirmed, the corresponding inventory consumption shall be processed according to FR-017.
+The system shall allow authorized users to create or register orders from restaurant customers, taking into account the requested products, additional specifications, assigned table, order status, creation date and time, total order value, and the user who registered the order. When creating an order, the system shall validate that the selected products are available before registering the order. When an order is confirmed, the corresponding inventory consumption shall be processed according to FR-017.
 
 #### FR-011 - Consult Orders
 
-The system shall allow authorized users to consult the orders registered in the system, filtering the information by order status, creation date and time, assigned table, and total order value.
+The system shall allow authorized users to consult the orders registered in the system, filtering the information by order status, creation date and time, assigned table, total order value and the user who registered the order.
 
 #### FR-012 - Modify Orders
 
@@ -326,6 +326,33 @@ The graphical representations may include bar charts, line charts, and pie chart
 
 ### 3.7 Administrative Reporting
 
+#### FR-027 - Sales Reports
+
+The system shall allow authorized users to generate sales reports containing individual rows for paid orders within a selected time period, including information such as the order number, payment date and time, order creation date and time, total order value, products ordered, payment method used, and the user who registered the payment.
+
+The system shall allow authorized users to generate a summary of the sales report, including the total number of paid orders, total revenue, and average paid order value based on the data included in the report after applying the selected filters.
+
+The system shall allow authorized users to filter the sales report by payment method, user who registered the payment, and selected time period, according to FR-025. The selected filters shall apply to both the individual order records and the report summary.
+
+#### FR-028 - Inventory Reports
+
+The system shall allow authorized users to generate inventory reports containing individual rows for inventory movement records, including columns for the movement date and time, movement type (inbound or outbound), ingredient name, quantity involved, movement reason or source, and the user who performed the action.
+
+The system shall allow authorized users to generate a summary of the inventory report, including the total number of inventory movements, the total quantity of ingredients recorded in inbound movements, and the total quantity of ingredients recorded in outbound movements, considering only the movements included in the report after applying the selected filters.
+
+The system shall allow authorized users to filter the inventory report by movement type, ingredient involved, user who performed the action, movement reason, and selected time period, as defined in FR-025. The selected filters shall apply to both the individual inventory movement records and the report summary.
+
+#### FR-029 - Order Reports
+
+The system shall allow authorized users to generate order reports containing individual rows for orders registered in the system, including information such as the order number, order creation date and time, order status, assigned table, total order value, products ordered, and the user who registered the order, including cancelled orders.
+
+The system shall allow authorized users to generate a summary of the order report, including the total number of registered orders, the total number of cancelled orders, the total number of completed orders, and the total value of registered orders, considering only the orders included in the report after applying the selected filters.
+
+The system shall allow authorized users to filter the order report by order status, order creation date and time, assigned table, total order value, product ordered, user who registered the order, and selected time period, as defined in FR-025. The selected filters shall apply to both the individual order records and the report summary.
+
+#### FR-030 - Report Export
+
+The system shall allow authorized users to export reports generated according to FR-027, FR-028, and FR-029 in common file formats, such as PDF and CSV, for further analysis or auditing purposes. The system shall preserve the format and structure of the report when exporting it, including both the individual records and the report summary. The exported report shall apply the filters selected when generating the report, ensuring that the exported report accurately reflects the information presented in the system interface. If no filters are applied, the exported report shall include all records.
 
 ## 4. Non-Functional Requirements
 
