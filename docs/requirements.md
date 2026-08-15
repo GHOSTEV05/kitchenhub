@@ -295,6 +295,35 @@ Once the payment has been successfully registered, the system shall automaticall
 The system shall allow authorized users to consult registered payments, filtering the information by payment date and time, payment method, amount due, associated order, and the user who performed the action.
 
 ### 3.6 Statistics Dashboard
+
+#### FR-022 - Sales Statistics
+
+The system shall allow authorized users to view sales-related statistics, including total revenue for a selected period, the number of paid orders, average revenue per order, revenue by payment method, and revenue trends over time according to the selected period defined in FR-025.
+
+The system shall calculate and display these statistics according to the time period selected in FR-025 and using the presentation formats defined in FR-026.
+
+#### FR-023 - Inventory Statistics
+
+The system shall allow authorized users to view inventory-related statistics, including ingredients that have reached critical stock levels, ingredients with the highest consumption, the quantity of ingredients consumed during a selected period, inventory inbound and outbound movements, and the approximate current value of the inventory.
+
+The system shall calculate and display these statistics according to the time period selected in FR-025 and using the presentation formats defined in FR-026.
+
+#### FR-024 - Order Statistics
+
+The system shall allow authorized users to view order-related statistics, including the number of orders by status, the number of orders registered during a selected period, the number of cancelled orders, the most sold products, and the days or hours with the highest number of orders.
+
+The system shall calculate and display these statistics according to the time period selected in FR-025 and using the presentation formats defined in FR-026.
+
+#### FR-025 - Statistics Period Selection
+
+The system shall allow authorized users to select the time period used to calculate and display statistics through a custom date range or the following predefined periods: "Today", "This Week", "This Month", and "This Year".
+
+#### FR-026 - Statistics Presentation
+
+The system shall present the statistics defined in FR-022, FR-023, and FR-024 using appropriate presentation formats, including numerical values, tables, and graphical representations.
+
+The graphical representations may include bar charts, line charts, and pie charts, depending on the type of statistic being displayed.
+
 ### 3.7 Administrative Reporting
 
 
